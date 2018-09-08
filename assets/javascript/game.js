@@ -14,64 +14,79 @@
 
 
 $(document).ready(function(){
-    //Generates a random number between 19 and 120
-    
+    //Declaring Variables   
+   
     var wins = 0;
 
     var losses = 0;
 
+    var targetNumber;
+
+    var crysCounterTotal = 0;
+
     $("#wins").text(wins);
     $("#loss").text(losses);
 
-    //Function that initializes the next game.
-    function initializeGame();
-    //Random number generated between 19 and 120
+    //Function that initializes the next game and generates random numbers
+function gameBegin () {
+    
     var targetNumber = Math.floor(Math.random() *(120-19+1)) + 19; 
     $("#guess-number").text(targetNumber);
-    
+   
+    var randomCrysValue1 = Math.floor(Math.random() * 12) + 1;
+    $("#crys-img1").attr ("data-crystalvalue", randomCrysValue1);    
 
-    //Variable for the number assigned to a crystal
-    var crysCounterTotal = 0;
-
-    // var crystalType = ["crys1", "crys2", "crys3", "crys4"];
-
-    // for ( var i = 0; i < crystalType.length; i++){
-        var randomCrysValue1 = Math.floor(Math.random() * 12) + 1;
-        console.log ("Random Crystal Value" + " " + randomCrysValue1)
-        $("#crys-img1").attr ("data-crystalvalue", randomCrysValue1);    
-    // };
-       
     var randomCrysValue2 = Math.floor(Math.random() * 12) + 1;
-    console.log ("Random Crystal Value" + " " + randomCrysValue2)
     $("#crys-img2").attr ("data-crystalvalue", randomCrysValue2);
 
-
     var randomCrysValue3 = Math.floor(Math.random() * 12) + 1;
-    console.log ("Random Crystal Value" + " " + randomCrysValue3)
     $("#crys-img3").attr ("data-crystalvalue", randomCrysValue3);
 
     var randomCrysValue4 = Math.floor(Math.random() * 12) + 1;
-    console.log ("Random Crystal Value" + " " + randomCrysValue4)
     $("#crys-img4").attr ("data-crystalvalue", randomCrysValue4);
+    }
 
-    $(".crystal-image").on("click", function() {
+
+function playGame (crystalValue) {
+    crysCounterTotal += crystalValue;
+    $("#score").text(crysCounterTotal);
+    console.log ("Counter Total" + "" + crysCounterTotal);
+    }
+
+//check if win or loss
+function checkResult() {
+   if (crysCounterTotal === targetNumber){   
+       console.log("crysCounterTotal is" + crysCounterTotal);
+       console.log("targetNumber is" + targetNumber);
+        wins ++;
+        console.log("wins" + wins);
+        $("#wins").text(wins);    
+        gameBegin(); //initialize game
+    } 
+
+    if (crysCounterTotal >= targetNumber){
+       console.log("Loss crysCounterTotal is" + crysCounterTotal);
+       console.log("Loss targetNumber is" + targetNumber);
+        losses ++;
+        console.log("Losses" + losses);
+        $("#loss").text(losses);
+        gameBegin();  // initialize game
+    }
+    if (crysCounterTotal < targetNumber){
+        console.log("Loss crysCounterTotal is" + crysCounterTotal);
+       console.log("Loss targetNumber is" + targetNumber);
+    }
+}
+
+
+$(".crystal-image").on("click", function() {
         var crystalValue = ($(this).attr("data-crystalvalue"));
         crystalValue = parseInt(crystalValue);
-        console.log (crystalValue);
-                
-        crysCounterTotal += crystalValue;
-        $("#score").text(crysCounterTotal);
-
-        if (crysCounterTotal === targetNumber){
-            wins ++;
-            $("#wins").text(wins);
-        }
-
-        else if (crysCounterTotal >= targetNumber) {
-            losses ++;
-            $("#loss").text(losses);
-        }
-
+        playGame(crystalValue);    
+        checkResult();       
     });
 
+gameBegin();
+
 });
+

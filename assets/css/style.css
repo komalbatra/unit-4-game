@@ -1,6 +1,70 @@
 
+/* body {
+    background-image: url("../images/background.png");
+    padding: 0;
+    margin: 0;
+    } */
 
-.crystal-image {
+#heading {
+    background: goldenrod;
+    font-size: 30px;
+    font-weight: bold;
+    color: brown;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+.container {
+    margin-top: 20px;
+    margin-left: 30px;
+    background: wheat;
+    width: 900px;
+    height: auto;
+    color: green;
+    padding: 20px;
+    line-height: 20px;
+    
+}
+
+.scorebox {
+   
+}
+
+#guess-number{
+    background: green;
+    font-size: 30px;
+    font-weight: bold;
     width: 100px;
     height: 100px;
+    text-align: center;
+    margin-left: 20px;
+    }
+
+.CounterBox{
+background: lightseagreen;
+font-size: 20px;
+width: 100px;
+height: 150px;
+margin-left: 20px;
+}
+
+.crystal-image {
+    height: 100px;
+    width: 100px;
+    }
+
+.scorearea {
+    background: teal;
+    height: 20px;
+    width: 200px;
+}
+
+#score {
+    background: teal;
+    height: 200px;
+    width: 200px;
+    font-size: 30px;
+    
 }
