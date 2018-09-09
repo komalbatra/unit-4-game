@@ -5,59 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>jQuery Assignment</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Reset CSS link -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <!-- CSS file link -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link rel="icon" type="favicon.ico" href="assets/images/crys4.png"/><!--Added favicon-->
+    <!-- favicon -->
+    <link rel="icon" type="favicon.ico" href="assets/images/crys4.png"/>
     
 </head>
 <body>
-    <div class="all">
-    <div id="heading"> Crystals Collector!</div>
+    <header>
+        <h1>Crystals Collector!</h1>
+    </header>
+       
     <div class = "container">
-    <p>You will be given a random number at the start of the game.</p>
-
-    <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
-
-    <p>You win the game by matching your total score to a random number, you lose the game if your total score goes above the random number.</p>
-
-    <p>The value of each crystal is hidden from you until you click on it.</p>
-
-    <p>Each time when the game starts, the game will change the values of each crystal.</p>
-
+        <p>You will be given a random number at the start of the game.</p>
+        <br>
+        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+        <br>
+        <p>You win the game by matching your total score to a random number, you lose the game if your total score goes above the random number.</p>
+        <br>
+        <p>The value of each crystal is hidden from you until you click on it.</p>
+        <br>
+        <p>Each time when the game starts, the game will change the values of each crystal.</p>
     </div>
     
     <div class="scorebox">
-        <div id="guess-number"></div>
-
-        <div class = "CounterBox">Wins:<p id="wins"></p>
-
-        Losses:<p id="loss"></p>
-        </div>
-
+        <section id="guess-number">
+        </section>
+        <section id = "counter-box">
+            <h3 id="announce"></h3>
+            Wins:
+            <p id="wins"></p>
+            Losses:
+            <p id="loss">Losses:</p>
+        </section>
     </div>
 
-    
-
 <!-- Crystal Images -->
-
-<div class="crystals">
+    <div class="crystals">
         <img class="crystal-image" id="crys-img1" src="assets/images/crys1.png" alt="Crystal 1">
         <img class="crystal-image" id="crys-img2" src="assets/images/crys2.png" alt="Crystal 2">
         <img class="crystal-image" id="crys-img3" src="assets/images/crys3.png" alt="Crystal 3">
         <img class="crystal-image" id="crys-img4" src="assets/images/crys4.png" alt="Crystal 4">
-        </div>
+    </div>
 
-<div class="scorearea">Your total score is:</div>
-<div id="score"></div>    
-</div>
+    <div class="scorearea">Your total score is:</div>
+        <div id="score"></div>    
+    </div>
 
+    <!-- JQuery & Javascript Links -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="assets/javascript/game.js"></script>
 
-<script>
-
-   
-</script>
-    
 </body>
 </html>
